@@ -1,21 +1,23 @@
-import os 
+import os
 import smtplib
 from email.message import EmailMessage
 
-#Configuração de login (e-mail e senha )
+# Configurações de login (e-mail e senha)
+email = 'SEU E-MAIL'
+senha = 'SUA SENHA'
 
-EMAIL = 'SEU E-MAIL'
-SENHA = 'SUA SENHA'
+# Criação da mensagem de e-mail
+mensagem = EmailMessage()
+mensagem['Subject'] = 'Lembrete, estudar para a prova'
+mensagem['From'] = email
+mensagem['To'] = 'E-MAIL DE DESTINO'
+mensagem.set_content('Olá, venho lembrá-lo de estudar para a prova de estatística')
 
-# criação do e-mail 
-
-MENSAGEM = EmailMessage()
-MENSAGEM['Subject'] = 'Lembrete, estudar para prova'
-MENSAGEM['From'] = 'SEU E-MAIL'
-MENSAGEM['To'] ='E-MAIL DE DESTINO'
-MENSAGEM.set_content('Olá, venho lemprar para estudar para prova de estatística')
-
-#Enviar o e-mail 
-with smtplib.SMTP_SSL('smtp.provedordeemail, 465') as smtp:
-    smtp.login(SEU E-MAIL, SUA SENHA )
-    smtp.send_message(MENSAGEM)
+# Envio da mensagem de e-mail
+try:
+    with smtplib.SMTP_SSL('smtp.provedordeemail, 465') as smtp:
+        smtp.login(email, senha)
+        smtp.send_message(mensagem)
+        print("E-mail enviado com sucesso!")
+except Exception as e:
+    print("Não foi possível enviar o e-mail: ", e)
