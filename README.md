@@ -2,7 +2,6 @@
 Envio  Automático de E-mail utilizando Python.
 
 ```python 
-
 import os
 import smtplib
 from email.message import EmailMessage
@@ -20,10 +19,9 @@ mensagem.set_content('Olá, venho lembrá-lo de estudar para a prova de estatís
 
 # Envio da mensagem de e-mail
 try:
-    with smtplib.SMTP_SSL('smtp.provedordeemail, 465') as smtp:
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
         smtp.login(email, senha)
         smtp.send_message(mensagem)
         print("E-mail enviado com sucesso!")
 except Exception as e:
     print("Não foi possível enviar o e-mail: ", e)
-    
