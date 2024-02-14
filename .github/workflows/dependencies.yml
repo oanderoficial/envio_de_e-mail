@@ -1,0 +1,27 @@
+name: DTT-00AK2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  installing-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Python packet
+        uses: actions/python@v2
+        with:
+          path: envio_dependencies
+          key: ${{ runner.os }}-${{ hashFiles('**/apt.lock')}}
+
+  
+      - name: Install dependencies 
+        run: |
+          python -m pip install --upgrade pip 
+          python -m pip install --upgrade setuptools
+          pip install smtplib
+          pip install EmailMessage
