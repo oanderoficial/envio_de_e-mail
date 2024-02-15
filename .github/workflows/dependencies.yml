@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Python packet
-        uses: actions/python@v2
+        uses: actions/setup-python@v2 
         with:
           path: envio_dependencies
           key: ${{ runner.os }}-${{ hashFiles('**/apt.lock')}}
