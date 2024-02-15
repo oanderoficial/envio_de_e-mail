@@ -3,7 +3,7 @@ name: envio de e-mail
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   installing-packages:
