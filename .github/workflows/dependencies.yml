@@ -23,5 +23,5 @@ jobs:
         run: |
           python -m pip install --upgrade pip 
           python -m pip install --upgrade setuptools
-          pip install smtplib
+          pip install secure-smtplib
           pip install EmailMessage
