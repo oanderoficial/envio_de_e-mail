@@ -1,4 +1,4 @@
-name: DTT-00AK2
+name: envio de e-mail 
 
 on:
   push:
